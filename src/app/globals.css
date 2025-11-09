@@ -163,7 +163,7 @@ html.dark body {
   gap: 2rem;
 }
 
-/* Desktop: Absolute positioning for creative layout - Updated v2.0 */
+/* Desktop: Absolute positioning for creative layout - Updated v3.0 */
 @media (min-width: 768px) {
   .about-layout {
     min-height: 1200px !important;
@@ -187,21 +187,21 @@ html.dark body {
     position: absolute !important;
   }
 
-  .about-layout .text-block:nth-of-type(1) {
+  .about-layout .text-block-1 {
     top: 30px !important;
     right: 50px !important;
     left: auto !important;
     margin-bottom: 0 !important;
   }
 
-  .about-layout .text-block:nth-of-type(2) {
+  .about-layout .text-block-2 {
     top: 420px !important;
     left: 80px !important;
     right: auto !important;
     margin-bottom: 0 !important;
   }
 
-  .about-layout .text-block:nth-of-type(3) {
+  .about-layout .text-block-3 {
     top: 780px !important;
     right: 80px !important;
     left: auto !important;

@@ -21,10 +21,10 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative flex flex-col min-h-screen overflow-x-hidden transition-colors duration-300 bg-(--background) text-(--text)"
+      className="relative flex flex-col min-h-screen overflow-x-hidden transition-colors duration-300 bg-(--background) text-(--text) "
     >
       {/* 🔹 NAVIGATION BAR */}
-      <nav className="relative z-20 flex flex-col px-4 sm:px-6 md:px-12 pt-8 pb-3 md:pt-6 animate-fadeIn">
+      <nav className="relative z-20 flex flex-col px-4 sm:px-6 md:px-12 pt-8 pb-3 md:pt-6 lg:pt-16 animate-fadeIn">
         <div className="flex items-center justify-between w-full gap-3">
           {/* Logo */}
           <div
@@ -127,12 +127,12 @@ export default function HeroSection() {
         </a>
       </div>
 
-      {/* 🔹 HERO CONTENT */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-16 lg:px-20 py-8 sm:py-10 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 sm:gap-8 items-center max-w-7xl mx-auto w-full">
+      {/* 🔹 HERO CONTENT - v4.0 with proper spacing */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center px-6 sm:px-10 md:px-20 lg:px-32 xl:px-40">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center w-full">
           {/* Text Section */}
-          <div className="animate-slideInFromLeft space-y-3 sm:space-y-4">
-            <h1 className="text-[32px] xs:text-[40px] sm:text-[52px] md:text-[64px] lg:text-[88px] xl:text-[110px] font-bold leading-[1.1] text-(--text)">
+          <div className="animate-slideInFromLeft space-y-4 sm:space-y-5 md:space-y-6 md:pl-8 lg:pl-12 xl:pl-16">
+            <h1 className="text-[32px] xs:text-[40px] sm:text-[52px] md:text-[64px] lg:text-[120px] xl:text-[150px] font-bold leading-[1.1] text-(--text) max-w-5xl">
               Full Stack <br /> Developer
             </h1>
 
@@ -140,21 +140,21 @@ export default function HeroSection() {
               MERN Stack
             </h2>
 
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed text-(--text) opacity-90">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-3xl leading-relaxed text-(--text) opacity-90">
               I create engaging digital experiences with a focus on elegant design and robust functionality.
               Passionate about building applications that make a difference.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6">
+            <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 pt-6 sm:pt-8">
               <a
                 href="#works"
-                className="group relative text-xs sm:text-sm md:text-base font-semibold rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 text-center transition-all duration-300 bg-linear-to-r from-[#FFD93D] to-[#FFE685] text-[#000B58] shadow-lg hover:shadow-2xl hover:-translate-y-1"
+                className="group relative text-sm sm:text-base md:text-lg lg:text-xl font-semibold rounded-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-center transition-all duration-300 bg-linear-to-r from-[#FFD93D] to-[#FFE685] text-[#000B58] shadow-lg hover:shadow-2xl hover:-translate-y-1"
               >
-                <span className="flex items-center justify-center gap-2">
+                <span className="flex items-center justify-center gap-3">
                   View My Work
                   <svg
-                    className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -166,12 +166,12 @@ export default function HeroSection() {
 
               <a
                 href="#contact"
-                className="group relative text-xs sm:text-sm md:text-base font-semibold rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 text-center border-2 border-[#FFD93D] text-[#FFD93D] transition-all duration-300 hover:bg-[#FFD93D] hover:text-[#000B58] hover:-translate-y-1"
+                className="group relative text-sm sm:text-base md:text-lg lg:text-xl font-semibold rounded-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-center border-2 border-[#FFD93D] text-[#FFD93D] transition-all duration-300 hover:bg-[#FFD93D] hover:text-[#000B58] hover:-translate-y-1"
               >
-                <span className="flex items-center justify-center gap-2">
+                <span className="flex items-center justify-center gap-3">
                   Contact Me
                   <svg
-                    className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:rotate-45"
+                    className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:rotate-45"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -184,8 +184,8 @@ export default function HeroSection() {
           </div>
 
           {/* Image Section */}
-          <div className="animate-slideInFromRight flex justify-center md:justify-end mt-6 sm:mt-8 md:mt-0">
-            <div className="relative w-[180px] xs:w-[220px] sm:w-[260px] md:w-[320px] lg:w-[400px] xl:w-[480px] aspect-3/4 overflow-hidden rounded-lg shadow-xl">
+          <div className="animate-slideInFromRight flex justify-center md:justify-end mt-6 sm:mt-8 md:mt-0 lg:mt-24">
+            <div className="relative w-[180px] xs:w-[220px] sm:w-[260px] md:w-[320px] lg:w-[400px] xl:w-[480px] aspect-3/4 overflow-hidden ">
               <Image
                 src="/img4.png"
                 alt="Tharany Sivapaskaran"

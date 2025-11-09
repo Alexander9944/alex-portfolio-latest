@@ -433,7 +433,7 @@ const AboutSection = () => {
               zIndex: 2,
               marginBottom: '1.5rem'
             }}
-            className="text-block"
+            className="text-block text-block-1"
           >
             <motion.p
               style={{
@@ -462,7 +462,7 @@ const AboutSection = () => {
               zIndex: 2,
               marginBottom: '1.5rem'
             }}
-            className="text-block"
+            className="text-block text-block-2"
           >
             <motion.p
               style={{
@@ -489,10 +489,9 @@ const AboutSection = () => {
               boxShadow: '0 8px 30px rgba(0, 0, 0, 0.1)',
               border: `2px solid ${currentColors.cardBorder}`,
               zIndex: 2,
-              marginBottom: '1.5rem',
-              marginLeft:'50%'
+              marginBottom: '1.5rem'
             }}
-            className="text-block"
+            className="text-block text-block-3"
           >
             <motion.p
               style={{
@@ -680,7 +679,7 @@ const AboutSection = () => {
             </motion.div>
           </motion.div>
         </div>
-        
+
         {/* Timeline section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
