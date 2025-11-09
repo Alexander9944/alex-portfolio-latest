@@ -23,14 +23,14 @@ const AboutSection = () => {
       secondaryLight: '#1A2470',
       secondaryDark: '#000842',
       border: '#FFD93D',
-      card: '#FFFFFF',
+      card: '#FFF8D4',
       cardBorder: '#FFD93D',
       progressBg: '#E6E6E0',
       progressFill: '#FFD93D'
     },
     dark: {
       background: '#000000',
-      text: '#F5F5F0',
+      text: '#FFF8D4',
       textSecondary: '#FFD93D',
       primary: '#FFD93D',
       primaryLight: '#FFE685',
@@ -39,7 +39,7 @@ const AboutSection = () => {
       secondaryLight: '#FFFFFF',
       secondaryDark: '#E6E6E0',
       border: '#FFD93D',
-      card: '#1A2470',
+      card: '#000B58',
       cardBorder: '#FFD93D',
       progressBg: '#1A2470',
       progressFill: '#FFD93D'
@@ -142,13 +142,15 @@ const AboutSection = () => {
 
   return (
     <div 
+      id="ABOUT ME"
       style={{ 
         position: 'relative',
-        padding: '3rem 0',
+        padding: '8rem 0 3rem 0',
         overflow: 'hidden',
         zIndex: 230,
         backgroundColor: 'var(--background)',
-        color: 'var(--text)'
+        color: 'var(--text)',
+        minHeight: '100vh'
       }}
       ref={sectionRef}
     >
@@ -527,7 +529,8 @@ const AboutSection = () => {
                 fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', 
                 fontWeight: '600', 
                 marginBottom: '1.5rem',
-                color: currentColors.text
+                color: currentColors.text,
+                textShadow: 'none'
               }}>
                 My Skills
               </h3>
@@ -549,14 +552,18 @@ const AboutSection = () => {
                     }}>
                       <span style={{ 
                         fontWeight: '500',
-                        color: currentColors.text
+                        color: currentColors.text,
+                        textShadow: 'none',
+                        opacity: 1
                       }}>
                         {skill.name}
                       </span>
                       <motion.span 
                         style={{ 
                           color: currentColors.primary,
-                          fontWeight: '500'
+                          fontWeight: '500',
+                          textShadow: 'none',
+                          opacity: 1
                         }}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -617,9 +624,10 @@ const AboutSection = () => {
               style={{ marginTop: '2.5rem' }}
             >
               <motion.a 
-                href="/resume.pdf" 
+                href="/Tharany_Full_Stack_Developer_resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                download="Tharany_Full_Stack_Developer_Resume.pdf"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -851,6 +859,7 @@ const AboutSection = () => {
 
         {/* Projects Showcase Section */}
         <motion.div
+          id="WORKS"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}

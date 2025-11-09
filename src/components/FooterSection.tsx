@@ -34,12 +34,12 @@ const FooterSection = () => {
     },
     dark: {
       background: '#000000',
-      text: '#F5F5F0',
+      text: '#FFF8D4',
       textSecondary: '#FFD93D',
       primary: '#FFD93D',
       secondary: '#F5F5F0',
       footerBg: '#001070',
-      cardBg: '#1A2470'
+      cardBg: '#000B58'
     }
   };
 
@@ -195,9 +195,28 @@ const FooterSection = () => {
   };
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(`[data-section-id="${sectionId}"]`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // Map section names to their actual IDs
+    const sectionIdMap: { [key: string]: string } = {
+      'home': '', // Scroll to top for home
+      'about me': 'ABOUT ME',
+      'works': 'WORKS', 
+      'skills': 'ABOUT ME', // Skills are part of the About Me section
+      'contact': 'CONTACT'
+    };
+
+    const targetId = sectionIdMap[sectionId.toLowerCase()];
+    
+    if (targetId === '') {
+      // Scroll to top for home
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } else if (targetId) {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -305,6 +324,7 @@ const FooterSection = () => {
 
   return (
     <div
+      id="CONTACT"
       ref={containerRef}
       style={{
         position: 'relative',
@@ -590,7 +610,7 @@ const FooterSection = () => {
                         flex: 1,
                         padding: '0.75rem',
                         borderRadius: '0.5rem',
-                        backgroundColor: currentColors.primary,
+                        backgroundColor: '#FF6B35',
                         color: '#fff',
                         border: 'none',
                         fontWeight: '500',
@@ -671,8 +691,9 @@ const FooterSection = () => {
                       width: '100%',
                       padding: '0.75rem',
                       borderRadius: '0.5rem',
-                      backgroundColor: currentColors.secondary,
-                      color: '#fff',
+                      backgroundColor: '#FFF8D4',
+                      color: '#000B58',
+                      WebkitTextFillColor: '#000B58',
                       border: 'none',
                       fontWeight: '500',
                       cursor: 'pointer',
@@ -766,23 +787,10 @@ const FooterSection = () => {
                   onMouseOver={(e) => (e.target as HTMLElement).style.color = currentColors.primary}
                   onMouseOut={(e) => (e.target as HTMLElement).style.color = 'inherit'}
                 >
-                  contact@example.com
+                  tharany.sivapaskaran@gmail.com
                 </a>
               </motion.li>
-              <motion.li 
-                whileHover={{ x: 5 }}
-                style={{ 
-                  display: 'flex', 
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  color: currentColors.textSecondary
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                <span>+1 234 567 890</span>
-              </motion.li>
+              
             </ul>
           </div>
           <div style={{ flex: 1 }}>
@@ -795,7 +803,7 @@ const FooterSection = () => {
               Quick Links
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, columns: windowSize.width < 640 ? '1' : '2' }}>
-              {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
+              {['Home', 'About Me', 'Works'].map((item) => (
                 <motion.li 
                   key={item}
                   whileHover={{ x: 5 }}

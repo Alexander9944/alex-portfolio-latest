@@ -19,39 +19,57 @@ export default function HeroSection() {
     }
   }, []);
 
+  // Smooth scroll function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <section
       className="relative flex flex-col min-h-screen overflow-x-hidden transition-colors duration-300 bg-(--background) text-(--text) "
     >
       {/* 🔹 NAVIGATION BAR */}
-      <nav className="relative z-20 flex flex-col px-4 sm:px-6 md:px-12 pt-8 pb-3 md:pt-6 lg:pt-16 animate-fadeIn">
+      <nav className="relative z-20 flex flex-col px-4 sm:px-6 md:px-12 pt-8 pb-3 md:pt-6 lg:pt-16 animate-fadeIn"
+      style={{
+        paddingTop:'18px'
+      }}>
         <div className="flex items-center justify-between w-full gap-3">
           {/* Logo */}
           <div
-            className="text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-tight text-[#FFD93D] truncate shrink-0"
+            className="text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-tight text-[#FFD93D] truncate shrink-0 max-md:text-xs max-md:mr-2 mobile-logo-spacing"
+            style={{ 
+              letterSpacing: '0.15em',
+              marginLeft: '150px'
+            }}
           >
-            THARANY SIVAPASKARAN
+            <span className="hidden lg:block">THARANY SIVAPASKARAN</span>
+            <span className="block lg:hidden">THARANY S.</span>
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-10 xl:gap-14 text-sm lg:text-base">
-            {['about', 'works', 'services'].map((item) => (
-              <a
+          <div className="hidden lg:flex items-center gap-3 lg:gap-4 xl:gap-6 2xl:gap-10 3xl:gap-14 text-xs lg:text-sm xl:text-base shrink-0 navbar-medium-screen">
+            {['ABOUT ME', 'WORKS', 'CONTACT'].map((item) => (
+              <button
                 key={item}
-                href={`#${item}`}
-                className="transition-opacity duration-200 hover:opacity-60"
-                style={{ color: '#000B58' }}
+                onClick={() => scrollToSection(item)}
+                className="transition-opacity duration-200 hover:opacity-60 cursor-pointer text-(--text) whitespace-nowrap"
               >
                 [ {item.toUpperCase()} ]
-              </a>
+              </button>
             ))}
           </div>
 
           {/* Mobile: Theme Toggle + Menu Button */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-3 relative z-50">
             <ThemeToggle />
             <button
-              className="flex flex-col gap-1.5 z-50 p-2 rounded-lg hover:bg-(--text)/5 transition-colors duration-200"
+              className="flex flex-col gap-1.5 p-2 rounded-lg hover:bg-(--text)/5 transition-colors duration-200 relative z-50"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -74,21 +92,21 @@ export default function HeroSection() {
           </div>
 
           {/* CTA (Desktop) */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="#contact"
-              className="flex items-center gap-2 text-sm font-medium tracking-wider border-b-2 border-[#FFD93D] text-[#FFD93D] pb-1 group hover:gap-3 transition-all duration-300"
+          <div className="hidden lg:flex items-center gap-2 lg:gap-3 xl:gap-4 2xl:gap-6 shrink-0 navbar-cta-medium">
+            <button
+              onClick={() => scrollToSection('CONTACT')}
+              className="flex items-center gap-1 lg:gap-1.5 xl:gap-2 text-xs lg:text-xs xl:text-sm 2xl:text-base font-medium tracking-wider border-b-2 border-[#FFD93D] text-[#FFD93D] pb-1 group hover:gap-2 xl:hover:gap-3 transition-all duration-300 cursor-pointer whitespace-nowrap"
             >
               LET&apos;S CONNECT
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-3 h-3 lg:w-3 lg:h-3 xl:w-4 xl:h-4 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </button>
             <ThemeToggle />
           </div>
         </div>
@@ -96,24 +114,36 @@ export default function HeroSection() {
 
       {/* 🔹 MOBILE MENU OVERLAY */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-black transition-transform duration-300 ${
+        className={`fixed top-20 left-0 right-0 bottom-0 z-40 flex flex-col items-center justify-center gap-10 bg-black transition-transform duration-300 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {['about', 'works', 'services'].map((item) => (
-          <a
+        {['ABOUT ME', 'WORKS', 'CONTACT'].map((item) => (
+          <button
             key={item}
-            href={`#${item}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-2xl sm:text-3xl font-medium tracking-widest text-[#FFD93D] hover:opacity-70"
-          >
+            onClick={() => {
+              scrollToSection(item);
+              setIsMobileMenuOpen(false);
+            }}
+            className="text-2xl sm:text-3xl font-medium tracking-widest hover:opacity-70 cursor-pointer max-lg:text-xl max-lg:py-3"
+             style={{
+              paddingTop:'18px',
+              color: '#FFF8D4 !important',
+              textDecoration: 'none'
+             }}>
             [ {item.toUpperCase()} ]
-          </a>
+          </button>
         ))}
-        <a
-          href="#contact"
-          className="mt-6 flex items-center gap-2 text-base font-semibold tracking-wider border-b-2 border-[#FFD93D] text-[#FFD93D] group hover:gap-3 transition-all duration-300"
-          onClick={() => setIsMobileMenuOpen(false)}
+        <button
+          onClick={() => {
+            scrollToSection('CONTACT');
+            setIsMobileMenuOpen(false);
+          }}
+          className="mt-6 flex items-center gap-2 text-base font-semibold tracking-wider group hover:gap-3 transition-all duration-300 cursor-pointer"
+          style={{
+            color: '#FFF8D4 !important',
+            borderBottom: '2px solid #FFF8D4'
+          }}
         >
           LET&apos;S CONNECT
           <svg
@@ -124,73 +154,82 @@ export default function HeroSection() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
-        </a>
+        </button>
       </div>
 
       {/* 🔹 HERO CONTENT - v4.0 with proper spacing */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center px-6 sm:px-10 md:px-20 lg:px-32 xl:px-40">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center w-full">
+      <div className="relative z-10 flex-1 flex flex-col justify-end px-6 sm:px-10 md:px-20 lg:px-32 xl:px-40 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
+        <div className="flex flex-col lg:flex-row items-end justify-between mobile-hero-layout">
           {/* Text Section */}
-          <div className="animate-slideInFromLeft space-y-4 sm:space-y-5 md:space-y-6 md:pl-8 lg:pl-12 xl:pl-16">
-            <h1 className="text-[32px] xs:text-[40px] sm:text-[52px] md:text-[64px] lg:text-[120px] xl:text-[150px] font-bold leading-[1.1] text-(--text) max-w-5xl">
+          <div className="animate-slideInFromLeft space-y-4 sm:space-y-5 lg:space-y-6 flex-1 lg:max-w-3xl lg:mx-auto lg:mr-8 mobile-hero-spacing mobile-text-order"
+          style={{
+            marginLeft:'150px'
+          }}>
+            <h1 className="text-[32px] xs:text-[40px] sm:text-[52px] lg:text-[64px] xl:text-[120px] 2xl:text-[130px] font-bold leading-[1.1] text-(--text) max-w-5xl max-lg:text-[28px] max-lg:max-w-full small-tablet-hero-text">
               Full Stack <br /> Developer
             </h1>
 
-            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-(--text)">
+            <h2 className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold text-(--text) max-lg:text-sm small-tablet-hero-subtitle">
               MERN Stack
             </h2>
 
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-3xl leading-relaxed text-(--text) opacity-90">
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-xl max-w-3xl leading-relaxed text-(--text) opacity-90 max-lg:text-xs max-lg:max-w-full max-lg:px-4 small-tablet-hero-description"
+            style={{padding:'10px'}}>
               I create engaging digital experiences with a focus on elegant design and robust functionality.
               Passionate about building applications that make a difference.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 pt-6 sm:pt-8">
-              <a
-                href="#works"
-                className="group relative text-sm sm:text-base md:text-lg lg:text-xl font-semibold rounded-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-center transition-all duration-300 bg-linear-to-r from-[#FFD93D] to-[#FFE685] text-[#000B58] shadow-lg hover:shadow-2xl hover:-translate-y-1"
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 pt-8 lg:pt-10 xl:pt-16 2xl:pt-24 max-lg:gap-4 max-lg:pt-6 max-lg:justify-center max-lg:items-center small-tablet-buttons">
+              <button
+                onClick={() => scrollToSection('WORKS')}
+                className="group relative inline-flex items-center justify-center gap-4 overflow-hidden 
+                         rounded-lg text-white 
+                         bg-linear-to-r from-yellow-400 to-amber-500 
+                         shadow-lg transition-all duration-500 ease-out 
+                         hover:scale-105 hover:shadow-2xl
+                         max-lg:gap-2 max-lg:text-sm"
+                style={{ 
+                  backgroundSize: '300% 100%',
+                  animation: 'gradient 3s ease infinite'
+                }}
               >
-                <span className="flex items-center justify-center gap-3">
-                  View My Work
+                <span className="relative z-10 flex items-center gap-4 font-bold tracking-wide max-lg:gap-2" 
+                style={{
+                  padding:'12px 25px'
+                }}>
+                  VIEW MY WORK
                   <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-1"
+                    className="w-6 h-6 transition-all duration-700 group-hover:translate-x-3 group-hover:scale-125 max-lg:w-4 max-lg:h-4"
                     fill="none"
                     stroke="currentColor"
+                    strokeWidth={3}
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
-              </a>
+              </button>
 
-              <a
-                href="#contact"
-                className="group relative text-sm sm:text-base md:text-lg lg:text-xl font-semibold rounded-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-center border-2 border-[#FFD93D] text-[#FFD93D] transition-all duration-300 hover:bg-[#FFD93D] hover:text-[#000B58] hover:-translate-y-1"
-              >
-                <span className="flex items-center justify-center gap-3">
-                  Contact Me
-                  <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:rotate-45"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </a>
+              <button
+                onClick={() => scrollToSection('CONTACT')}
+                className="group relative text-sm sm:text-base lg:text-lg xl:text-xl font-bold  rounded-lg px-10 sm:px-12 lg:px-14 py-5 sm:py-6 lg:py-7 text-center transition-all duration-700 ease-out overflow-hidden border-3 border-[#FFD93D] text-[#FFD93D] hover:text-white hover:scale-105 active:scale-95 backdrop-blur-sm hover:border-[#FFE685] hover:shadow-[0_25px_80px_rgba(255,217,61,0.4)] bg-transparent hover:bg-[#FFD93D]/10 cursor-pointer max-lg:text-xs max-lg:px-6 max-lg:py-3 max-lg:border-2"
+              style={{
+                  padding:'12px 25px'
+                }}>
+                CONTACT ME
+              </button>
             </div>
           </div>
 
           {/* Image Section */}
-          <div className="animate-slideInFromRight flex justify-center md:justify-end mt-6 sm:mt-8 md:mt-0 lg:mt-24">
-            <div className="relative w-[180px] xs:w-[220px] sm:w-[260px] md:w-[320px] lg:w-[400px] xl:w-[480px] aspect-3/4 overflow-hidden ">
+          <div className="animate-slideInFromRight flex justify-center lg:justify-end shrink-0 mobile-image-order">
+            <div className="relative w-[180px] xs:w-[220px] sm:w-[260px] lg:w-[320px] xl:w-[400px] 2xl:w-[480px] aspect-3/4 overflow-hidden max-lg:w-[140px] max-lg:rounded-lg small-tablet-image">
               <Image
                 src="/img4.png"
                 alt="Tharany Sivapaskaran"
                 fill
-                sizes="(max-width: 475px) 180px, (max-width: 640px) 220px, (max-width: 768px) 260px, (max-width: 1024px) 320px, (max-width: 1280px) 400px, 480px"
+                sizes="(max-width: 475px) 140px, (max-width: 640px) 160px, (max-width: 1024px) 180px, (max-width: 1280px) 320px, (max-width: 1536px) 400px, 480px"
                 className="object-cover"
                 priority
               />

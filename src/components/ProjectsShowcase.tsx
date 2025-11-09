@@ -21,14 +21,16 @@ const ProjectsShowcase = () => {
       secondary: '#000B58',
       cardBg: '#FFFFFF',
       cardBorder: '#FFD93D',
+      buttonBg: '#FFF8D4',
     },
     dark: {
       background: '#000000',
-      text: '#F5F5F0',
+      text: '#FFF8D4',
       primary: '#FFD93D',
       secondary: '#F5F5F0',
-      cardBg: '#1A2470',
+      cardBg: '#000B58',
       cardBorder: '#FFD93D',
+      buttonBg: 'linear-gradient(135deg, #FFD93D, #F5F5F0)',
     }
   };
 
@@ -232,8 +234,8 @@ const ProjectsShowcase = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem)',
-                  background: `linear-gradient(135deg, ${currentColors.primary}, ${currentColors.secondary})`,
-                  color: '#000000',
+                  background: theme === 'light' ? currentColors.buttonBg : `linear-gradient(135deg, ${currentColors.primary}, ${currentColors.secondary})`,
+                  color: theme === 'light' ? '#000B58' : '#000000',
                   textDecoration: 'none',
                   borderRadius: '8px',
                   fontWeight: '600',

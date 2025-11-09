@@ -1,5 +1,115 @@
 @import "tailwindcss";
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure text visibility in all themes - v5.0 force override */
+* {
+  color: inherit !important;
+}
+
+/* Mobile and small tablet responsive overrides (screens < 1024px for mobile-like behavior) */
+@media (max-width: 1023px) {
+  .mobile-logo-spacing {
+    margin-left: 0 !important;
+  }
+  
+  .mobile-hero-spacing {
+    margin-left: 0 !important;
+    text-align: center !important;
+    padding: 0 1rem !important;
+  }
+  
+  .mobile-hero-layout {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 2rem !important;
+  }
+  
+  .mobile-image-order {
+    order: 1 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .mobile-text-order {
+    order: 2 !important;
+  }
+  
+  /* Force mobile layout behavior for all elements below 768px */
+  .mobile-hero-layout > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-self: center !important;
+    align-self: center !important;
+  }
+}
+
+/* Specific styling for small tablet range (640px - 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+  .small-tablet-hero-text {
+    font-size: 2.5rem !important; /* Slightly larger than mobile */
+    line-height: 1.1 !important;
+  }
+  
+  .small-tablet-hero-subtitle {
+    font-size: 1.125rem !important; /* Slightly larger than mobile */
+  }
+  
+  .small-tablet-hero-description {
+    font-size: 0.9375rem !important; /* Between mobile and desktop */
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .small-tablet-buttons {
+    gap: 1rem !important;
+    padding-top: 1.5rem !important;
+    justify-content: center !important; /* Force center alignment */
+    align-items: center !important;
+    flex-direction: column !important; /* Force vertical stacking */
+  }
+  
+  .small-tablet-buttons button {
+    align-self: center !important;
+    width: auto !important;
+  }
+  
+  .small-tablet-image {
+    width: 180px !important;
+  }
+}
+
+/* Medium screen navbar optimization (1024px - 1200px) */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .navbar-medium-screen {
+    gap: 0.75rem !important;
+  }
+  
+  .navbar-medium-screen button {
+    font-size: 0.75rem !important;
+    padding: 0.25rem !important;
+  }
+  
+  .navbar-cta-medium {
+    gap: 0.5rem !important;
+  }
+}
+
+/* Loader component override - force white text */
+.loader-container,
+.loader-container *,
+.loader-container div,
+.loader-container span {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+}
+
+body, p, span, div, h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+}
+
 :root {
   --breakpoint-xs: 475px;
   --background: #F5F5F0;
@@ -12,14 +122,14 @@
 html.dark,
 html.dark * {
   --background: #000000;
-  --foreground: #F5F5F0;
-  --text: #F5F5F0;
+  --foreground: #FFF8D4;
+  --text: #FFF8D4;
 }
 
 .dark {
   --background: #000000;
-  --foreground: #F5F5F0;
-  --text: #F5F5F0;
+  --foreground: #FFF8D4;
+  --text: #FFF8D4;
   --primary: #FFD93D;
   --secondary: #F5F5F0;
   --color-background: var(--background);
@@ -31,7 +141,7 @@ html.dark * {
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;
-    --foreground: #F5F5F0;
+    --foreground: #FFF8D4;
   }
 }
 
@@ -164,7 +274,7 @@ html.dark body {
 }
 
 /* Desktop: Absolute positioning for creative layout - Updated v3.0 */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .about-layout {
     min-height: 1200px !important;
     padding-top: 2rem !important;
@@ -222,13 +332,43 @@ html.dark body {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .stat-badge {
     display: none !important;
   }
 }
 
-/* Projects Showcase Responsive Styles */
+/* Tablet range: Keep mobile layout for About section (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding-top: 1rem !important;
+  }
+  
+  .profile-image-container {
+    position: relative !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .about-layout .text-block {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .timeline-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Desktop: Absolute positioning for creative layout - Updated v3.0 */
 @media (min-width: 768px) {
   .projects-grid {
     display: grid !important;
