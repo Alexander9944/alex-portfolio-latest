@@ -234,7 +234,7 @@ const ProjectsShowcase = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem)',
-                  background: theme === 'light' ? currentColors.buttonBg : `linear-gradient(135deg, ${currentColors.primary}, ${currentColors.secondary})`,
+                  background: theme === 'dark' ? '#000B58' : '#F9F8F6',
                   color: theme === 'light' ? '#000B58' : '#000000',
                   textDecoration: 'none',
                   borderRadius: '8px',

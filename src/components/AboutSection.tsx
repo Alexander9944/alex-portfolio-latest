@@ -661,7 +661,7 @@ const AboutSection = () => {
                   }}
                   style={{
                     padding: '0.75rem 1.5rem',
-                    backgroundImage: `linear-gradient(135deg, ${currentColors.primary}, ${currentColors.secondary})`,
+                    background: theme === 'dark' ? '#000B58' : '#F9F8F6',
                     color: '#ffffff',
                     borderRadius: '0.5rem',
                     fontWeight: '500',
