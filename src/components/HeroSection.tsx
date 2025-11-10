@@ -187,12 +187,17 @@ export default function HeroSection() {
               MERN Stack
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-xl max-w-3xl leading-relaxed opacity-90 max-lg:text-xs max-lg:max-w-full max-lg:px-4 small-tablet-hero-description"
+            <p className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl max-w-3xl leading-relaxed opacity-95 max-lg:text-base max-lg:max-w-full max-lg:px-6 small-tablet-hero-description"
             style={{
-              padding:'10px',
-              color: theme === 'dark' ? '#FFF8D4' : '#000B58'
+              padding:'18px 18px 18px 18px',
+              color: theme === 'dark' ? '#FFF8D4' : '#000B58',
+              lineHeight: '2',
+              fontWeight: 400,
+              letterSpacing: '0.01em',
+              background: theme === 'dark' ? 'rgba(0,0,0,0.7)' : 'rgba(255,248,212,0.7)',
+              borderRadius: '12px'
             }}>
-              I create engaging digital experiences with a focus on elegant design and robust functionality.
+              I create engaging digital experiences with a focus on elegant design and robust functionality.<br />
               Passionate about building applications that make a difference.
             </p>
 
@@ -241,12 +246,12 @@ export default function HeroSection() {
 
           {/* Image Section */}
           <div className="animate-slideInFromRight flex justify-center lg:justify-end shrink-0 mobile-image-order">
-            <div className="relative w-[180px] xs:w-[220px] sm:w-[260px] lg:w-[320px] xl:w-[400px] 2xl:w-[480px] aspect-3/4 overflow-hidden max-lg:w-[140px] max-lg:rounded-lg small-tablet-image">
+            <div className="relative w-[220px] xs:w-[260px] sm:w-[300px] lg:w-[320px] xl:w-[400px] 2xl:w-[480px] aspect-3/4 overflow-hidden max-lg:w-[220px] max-lg:rounded-lg small-tablet-image">
               <Image
                 src="/img4.png"
                 alt="Tharany Sivapaskaran"
                 fill
-                sizes="(max-width: 475px) 140px, (max-width: 640px) 160px, (max-width: 1024px) 180px, (max-width: 1280px) 320px, (max-width: 1536px) 400px, 480px"
+                sizes="(max-width: 475px) 180px, (max-width: 640px) 200px, (max-width: 1024px) 220px, (max-width: 1280px) 320px, (max-width: 1536px) 400px, 480px"
                 className="object-cover"
                 priority
               />
