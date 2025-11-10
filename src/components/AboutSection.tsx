@@ -80,13 +80,14 @@ const AboutSection = () => {
   
   // Skills data
   const skills = [
+    { name: 'JavaScript', proficiency: 95 },
     { name: 'React.js', proficiency: 90 },
-    { name: 'React Native', proficiency: 85 },
-    { name: 'Next.js', proficiency: 85 },
+    { name: 'Next.js', proficiency: 80 },
     { name: 'Node.js', proficiency: 85 },
+    { name: 'MongoDB', proficiency: 80 },
     { name: 'UI/UX Design', proficiency: 80 },
-    { name: 'JavaScript', proficiency: 92 },
-    { name: 'CSS/SCSS', proficiency: 88 },
+    { name: 'CSS/TailwindCSS', proficiency: 80 },
+    { name: 'Python', proficiency: 85 },
   ];
   
   // Experience data
