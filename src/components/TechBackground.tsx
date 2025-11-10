@@ -98,7 +98,7 @@ const TechBackground = () => {
     // Calculate how many sections we need based on document height
     const viewportHeight = window.innerHeight;
     const sectionsNeeded = Math.ceil(documentHeight / viewportHeight);
-    const iconsPerSection = 15; // More icons per section
+  const iconsPerSection = 7; // Fewer icons per section
     
     // Distribute icons across the entire document height
     for (let section = 0; section < sectionsNeeded; section++) {
@@ -121,7 +121,7 @@ const TechBackground = () => {
     }
     
     // Add extra random icons for organic feel
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 10; i++) {
       const tech = technologies[Math.floor(Math.random() * technologies.length)];
       icons.push({
         name: tech,

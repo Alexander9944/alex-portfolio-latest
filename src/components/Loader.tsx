@@ -83,7 +83,7 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
               WebkitTextFillColor: 'white'
             }}
           >
-            THARANY
+            Tharany Sivapaskaran
           </div>
   
           {/* Progress bar */}
@@ -102,7 +102,7 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
               WebkitTextFillColor: 'white'
             }}
           >
-            LOADING
+            LOADING ...
           </div>
         </div>
   

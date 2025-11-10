@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@fontsource/eb-garamond": "^5.2.7",
+    "@fontsource/poppins": "^5.2.7",
     "framer-motion": "^12.23.24",
     "next": "16.0.1",
     "react": "19.2.0",

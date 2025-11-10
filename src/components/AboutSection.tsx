@@ -358,7 +358,7 @@ const AboutSection = () => {
                   pointerEvents: 'none'
                 }} />
                 <Image
-                  src="/img4.png" 
+                  src="/img5.jpeg" 
                   alt="About"
                   width={280}
                   height={350}
@@ -397,7 +397,7 @@ const AboutSection = () => {
                     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
                     border: `1px solid ${currentColors.cardBorder}`,
                     cursor: 'pointer',
-                    top: index === 0 ? '10%' : '40%',
+                    top: index === 0 ? '1%' : '40%',
                     left: index === 0 ? '-8%' : 'auto',
                     right: index === 0 ? 'auto' : '-8%'
                   }}
