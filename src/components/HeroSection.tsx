@@ -177,7 +177,7 @@ export default function HeroSection() {
           style={{
             marginLeft:'150px'
           }}>
-            <h1 className="text-[32px] xs:text-[40px] sm:text-[52px] lg:text-[64px] xl:text-[120px] 2xl:text-[130px] font-bold leading-[1.1] max-w-5xl max-lg:text-[28px] max-lg:max-w-full small-tablet-hero-text"
+            <h1 className="text-[32px] xs:text-[40px] sm:text-[52px] lg:text-[54px] xl:text-[90px] 2xl:text-[100px] font-bold leading-[1.1] max-w-5xl max-lg:text-[28px] max-lg:max-w-full small-tablet-hero-text"
             style={{ color: theme === 'dark' ? '#FFF8D4' : '#000B58' }}>
               Full Stack <br /> Developer
             </h1>
@@ -187,7 +187,7 @@ export default function HeroSection() {
               MERN Stack
             </h2>
 
-            <p className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl max-w-3xl leading-relaxed opacity-95 max-lg:text-base max-lg:max-w-full max-lg:px-6 small-tablet-hero-description"
+            <p className="text-base sm:text-lg lg:text-[1.05rem] xl:text-lg 2xl:text-xl max-w-3xl leading-relaxed opacity-95 max-lg:text-base max-lg:max-w-full max-lg:px-6 small-tablet-hero-description"
             style={{
               padding:'18px 18px 18px 18px',
               color: theme === 'dark' ? '#FFF8D4' : '#000B58',
@@ -246,7 +246,7 @@ export default function HeroSection() {
 
           {/* Image Section */}
           <div className="animate-slideInFromRight flex justify-center lg:justify-end shrink-0 mobile-image-order">
-            <div className="relative w-[220px] xs:w-[260px] sm:w-[300px] lg:w-[320px] xl:w-[400px] 2xl:w-[480px] aspect-3/4 overflow-hidden max-lg:w-[220px] max-lg:rounded-lg small-tablet-image">
+            <div className="relative w-[220px] xs:w-[260px] sm:w-[300px] lg:w-[360px] xl:w-[440px] 2xl:w-[540px] aspect-3/4 overflow-hidden max-lg:w-[220px] max-lg:rounded-lg small-tablet-image">
               <Image
                 src="/img4.png"
                 alt="Tharany Sivapaskaran"
