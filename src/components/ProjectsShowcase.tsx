@@ -15,7 +15,7 @@ const ProjectsShowcase = () => {
   // Define theme colors
   const colors = {
     light: {
-      background: '#F5F5F0',
+      background: '#FFF8D4',
       text: '#000B58',
       primary: '#FFD93D',
       secondary: '#000B58',

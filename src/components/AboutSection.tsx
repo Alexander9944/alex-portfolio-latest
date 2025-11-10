@@ -10,10 +10,14 @@ import ProjectsShowcase from './ProjectsShowcase';
 const AboutSection = () => {
   const { theme } = useTheme();
   
+  useEffect(() => {
+    console.log('Current theme mode:', theme);
+  }, [theme]);
+  
   // Define theme colors
   const colors = {
     light: {
-      background: '#F5F5F0',
+      background: '#FFF8D4',
       text: '#000B58',
       textSecondary: '#000B58',
       primary: '#FFD93D',
@@ -39,7 +43,7 @@ const AboutSection = () => {
       secondaryLight: '#FFFFFF',
       secondaryDark: '#E6E6E0',
       border: '#FFD93D',
-      card: '#000B58',
+      card: 'transparent',
       cardBorder: '#FFD93D',
       progressBg: '#1A2470',
       progressFill: '#FFD93D'
@@ -148,9 +152,10 @@ const AboutSection = () => {
         padding: '8rem 0 3rem 0',
         overflow: 'hidden',
         zIndex: 230,
-        backgroundColor: 'var(--background)',
-        color: 'var(--text)',
-        minHeight: '100vh'
+        backgroundColor: currentColors.background,
+        color: currentColors.text,
+        minHeight: '100vh',
+        transition: 'background-color 0.3s ease, color 0.3s ease'
       }}
       ref={sectionRef}
     >

@@ -24,13 +24,13 @@ const FooterSection = () => {
   // Define theme colors
   const colors = {
     light: {
-      background: '#F5F5F0',
+      background: '#FFF8D4',
       text: '#000B58',
       textSecondary: '#000B58',
       primary: '#FFD93D',
       secondary: '#000B58',
       footerBg: '#FFFFFF',
-      cardBg: '#F5F5F0'
+      cardBg: '#FFFFFF'
     },
     dark: {
       background: '#000000',
@@ -329,10 +329,11 @@ const FooterSection = () => {
       style={{
         position: 'relative',
         width: '100%',
-        backgroundColor: 'var(--background)',
+        backgroundColor: currentColors.background,
         paddingTop: '6rem',
         paddingBottom: '2rem',
-        zIndex: 1000
+        zIndex: 1000,
+        transition: 'background-color 0.3s ease'
       }}
     >
       {/* Main footer content */}

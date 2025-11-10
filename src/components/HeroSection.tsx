@@ -3,10 +3,12 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import ThemeToggle from './ThemeToggle';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function HeroSection() {
   const numberRef = useRef<HTMLDivElement>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     if (numberRef.current) {
@@ -30,9 +32,15 @@ export default function HeroSection() {
     }
   };
 
+  // Use toggleTheme from context
+
   return (
     <section
-      className="relative flex flex-col min-h-screen overflow-x-hidden transition-colors duration-300 bg-(--background) text-(--text) "
+      className="relative flex flex-col min-h-screen overflow-x-hidden transition-colors duration-300"
+      style={{
+        backgroundColor: theme === 'dark' ? '#000000' : '#FFF8D4',
+        color: theme === 'dark' ? '#FFF8D4' : '#000B58'
+      }}
     >
       {/* 🔹 NAVIGATION BAR */}
       <nav className="relative z-20 flex flex-col px-4 sm:px-6 md:px-12 pt-8 pb-3 md:pt-6 lg:pt-16 animate-fadeIn"
@@ -58,7 +66,8 @@ export default function HeroSection() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="transition-opacity duration-200 hover:opacity-60 cursor-pointer text-(--text) whitespace-nowrap"
+                className="transition-opacity duration-200 hover:opacity-60 cursor-pointer whitespace-nowrap"
+                style={{ color: theme === 'dark' ? '#FFF8D4' : '#000B58' }}
               >
                 [ {item.toUpperCase()} ]
               </button>
@@ -114,9 +123,12 @@ export default function HeroSection() {
 
       {/* 🔹 MOBILE MENU OVERLAY */}
       <div
-        className={`fixed top-20 left-0 right-0 bottom-0 z-40 flex flex-col items-center justify-center gap-10 bg-black transition-transform duration-300 ${
+        className={`fixed top-20 left-0 right-0 bottom-0 z-40 flex flex-col items-center justify-center gap-10 transition-transform duration-300 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{
+          backgroundColor: theme === 'dark' ? '#000000' : '#FFF8D4'
+        }}
       >
         {['ABOUT ME', 'WORKS', 'CONTACT'].map((item) => (
           <button
@@ -128,7 +140,7 @@ export default function HeroSection() {
             className="text-2xl sm:text-3xl font-medium tracking-widest hover:opacity-70 cursor-pointer max-lg:text-xl max-lg:py-3"
              style={{
               paddingTop:'18px',
-              color: '#FFF8D4 !important',
+              color: theme === 'dark' ? '#FFF8D4' : '#000B58',
               textDecoration: 'none'
              }}>
             [ {item.toUpperCase()} ]
@@ -141,8 +153,8 @@ export default function HeroSection() {
           }}
           className="mt-6 flex items-center gap-2 text-base font-semibold tracking-wider group hover:gap-3 transition-all duration-300 cursor-pointer"
           style={{
-            color: '#FFF8D4 !important',
-            borderBottom: '2px solid #FFF8D4'
+            color: theme === 'dark' ? '#FFF8D4' : '#000B58',
+            borderBottom: `2px solid ${theme === 'dark' ? '#FFF8D4' : '#000B58'}`
           }}
         >
           LET&apos;S CONNECT
@@ -165,16 +177,21 @@ export default function HeroSection() {
           style={{
             marginLeft:'150px'
           }}>
-            <h1 className="text-[32px] xs:text-[40px] sm:text-[52px] lg:text-[64px] xl:text-[120px] 2xl:text-[130px] font-bold leading-[1.1] text-(--text) max-w-5xl max-lg:text-[28px] max-lg:max-w-full small-tablet-hero-text">
+            <h1 className="text-[32px] xs:text-[40px] sm:text-[52px] lg:text-[64px] xl:text-[120px] 2xl:text-[130px] font-bold leading-[1.1] max-w-5xl max-lg:text-[28px] max-lg:max-w-full small-tablet-hero-text"
+            style={{ color: theme === 'dark' ? '#FFF8D4' : '#000B58' }}>
               Full Stack <br /> Developer
             </h1>
 
-            <h2 className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold text-(--text) max-lg:text-sm small-tablet-hero-subtitle">
+            <h2 className="text-base sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-semibold max-lg:text-sm small-tablet-hero-subtitle"
+            style={{ color: theme === 'dark' ? '#FFF8D4' : '#000B58' }}>
               MERN Stack
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-xl max-w-3xl leading-relaxed text-(--text) opacity-90 max-lg:text-xs max-lg:max-w-full max-lg:px-4 small-tablet-hero-description"
-            style={{padding:'10px'}}>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-xl max-w-3xl leading-relaxed opacity-90 max-lg:text-xs max-lg:max-w-full max-lg:px-4 small-tablet-hero-description"
+            style={{
+              padding:'10px',
+              color: theme === 'dark' ? '#FFF8D4' : '#000B58'
+            }}>
               I create engaging digital experiences with a focus on elegant design and robust functionality.
               Passionate about building applications that make a difference.
             </p>

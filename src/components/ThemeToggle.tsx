@@ -1,46 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+
+import { useTheme } from '@/contexts/ThemeContext';
 import { motion } from 'framer-motion';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // Check for saved theme or default to light
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
-    const isDark = savedTheme === 'dark' || document.documentElement.classList.contains('dark');
-    const currentTheme = isDark ? 'dark' : 'light';
-    setTheme(currentTheme);
-    
-    // Apply the theme immediately
-    if (currentTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Apply theme to document
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
-
-  // Don't render until mounted to avoid hydration mismatch
-  if (!mounted) {
-    return null;
-  }
-
+  const { theme, toggleTheme } = useTheme();
   return (
     <motion.div
       onClick={toggleTheme}
