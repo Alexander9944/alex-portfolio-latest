@@ -87,7 +87,7 @@ const AboutSection = () => {
     { name: 'MongoDB', proficiency: 80 },
     { name: 'UI/UX Design', proficiency: 80 },
     { name: 'CSS/TailwindCSS', proficiency: 80 },
-    { name: 'Python', proficiency: 85 },
+    
   ];
   
   // Experience data
@@ -359,7 +359,7 @@ const AboutSection = () => {
                   pointerEvents: 'none'
                 }} />
                 <Image
-                  src="/img5.jpeg" 
+                  src="/img5.png" 
                   alt="About"
                   width={280}
                   height={350}
@@ -451,7 +451,7 @@ const AboutSection = () => {
                 margin: 0
               }}
             >
-              I'm <span style={{ color: currentColors.primary, fontWeight: 'bold' }}>Tharany Sivapaskaran</span>, a passionate Full-Stack Developer with a strong foundation in Electronics and Communication Engineering and hands-on experience building scalable, user-friendly web applications. After working as a University Instructor, I transitioned into software development — driven by a deep interest in creating real-world digital solutions that make a difference.
+              I'm <span style={{ color: currentColors.primary, fontWeight: 'bold' }}>Alexander Abraham</span>, a passionate Full-Stack Developer with a strong foundation in Electronics and Communication Engineering and hands-on experience building scalable, user-friendly web applications. After working as a University Instructor, I transitioned into software development — driven by a deep interest in creating real-world digital solutions that make a difference.
             </motion.p>
           </motion.div>
 
@@ -630,10 +630,10 @@ const AboutSection = () => {
               style={{ marginTop: '2.5rem' }}
             >
               <motion.a 
-                href="/Tharany_Full_Stack_Developer_resume.pdf" 
+                href="/Alexander_Full_Stack_Developer.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                download="Tharany_Full_Stack_Developer_Resume.pdf"
+                download="Alexander_Full_Stack_Developer.pdf"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

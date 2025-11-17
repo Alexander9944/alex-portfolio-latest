@@ -47,9 +47,9 @@ const FooterSection = () => {
 
   // Social links data
   const socialLinks = [
-    { name: 'GitHub', icon: 'github', url: 'https://github.com/tharany2194' },
-    { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/tharany-sivapaskaran-5951431a3/' },
-    { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/_idyllic_aura_/' },
+    { name: 'GitHub', icon: 'github', url: 'https://github.com/Alexander9944' },
+    { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/alexander-abraham-5814251b7/' },
+    { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/alexander.1388/' },
   ];
 
   // Track window size
@@ -376,7 +376,7 @@ const FooterSection = () => {
                 marginBottom: '1rem'
               }}
             >
-              Tharany Sivapaskaran
+              Alexander Abraham
             </motion.h3>
             <p style={{
               color: currentColors.textSecondary,
@@ -788,7 +788,7 @@ const FooterSection = () => {
                   onMouseOver={(e) => (e.target as HTMLElement).style.color = currentColors.primary}
                   onMouseOut={(e) => (e.target as HTMLElement).style.color = 'inherit'}
                 >
-                  tharany.sivapaskaran@gmail.com
+                  Anderalex789@gmail.com
                 </a>
               </motion.li>
               
@@ -849,7 +849,7 @@ const FooterSection = () => {
             fontSize: '0.875rem',
             textAlign: windowSize.width < 640 ? 'center' : 'left'
           }}>
-            © {new Date().getFullYear()} Tharany Sivapaskaran. All rights reserved.
+            © {new Date().getFullYear()} Alexander Abraham. All rights reserved.
           </p>
           <motion.button
             onClick={scrollToTop}

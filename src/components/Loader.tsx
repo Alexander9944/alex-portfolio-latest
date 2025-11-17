@@ -83,7 +83,7 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
               WebkitTextFillColor: 'white'
             }}
           >
-            Tharany Sivapaskaran
+            ALEXANDER ABRAHAM
           </div>
   
           {/* Progress bar */}

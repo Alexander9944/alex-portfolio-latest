@@ -56,8 +56,8 @@ export default function HeroSection() {
               marginLeft: '150px'
             }}
           >
-            <span className="hidden lg:block">THARANY SIVAPASKARAN</span>
-            <span className="block lg:hidden">THARANY S.</span>
+            <span className="hidden lg:block">Alexander Abraham</span>
+            <span className="block lg:hidden">ALexander.A</span>
           </div>
 
           {/* Desktop Links */}
@@ -249,7 +249,7 @@ export default function HeroSection() {
             <div className="relative w-[220px] xs:w-[260px] sm:w-[300px] lg:w-[360px] xl:w-[440px] 2xl:w-[540px] aspect-3/4 overflow-hidden max-lg:w-[220px] max-lg:rounded-lg small-tablet-image">
               <Image
                 src="/img4.png"
-                alt="Tharany Sivapaskaran"
+                alt="Alexander Abraham"
                 fill
                 sizes="(max-width: 475px) 180px, (max-width: 640px) 200px, (max-width: 1024px) 220px, (max-width: 1280px) 320px, (max-width: 1536px) 400px, 480px"
                 className="object-cover"

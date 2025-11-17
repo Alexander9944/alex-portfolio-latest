@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tharany Sivapaskaran - Full Stack Developer",
-  description: "Portfolio of Tharany Sivapaskaran",
+  title: "Alexander Abraham - Full Stack Developer",
+  description: "Portfolio of Alexander Abraham, a skilled full stack developer.",
 };
 
 export const viewport = {
