@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Loader from '@/components/Loader';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import ProjectsShowcase from '@/components/ProjectsShowcase';
 import FooterSection from '@/components/FooterSection';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <main className="overflow-x-hidden">
           <HeroSection />
           <AboutSection />
+          <ProjectsShowcase />
           <FooterSection />
         </main>
       )}

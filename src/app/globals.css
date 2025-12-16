@@ -17,31 +17,31 @@ html {
   .mobile-logo-spacing {
     margin-left: 0 !important;
   }
-  
+
   .mobile-hero-spacing {
     margin-left: 0 !important;
     text-align: center !important;
     padding: 0 1rem !important;
   }
-  
+
   .mobile-hero-layout {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
     gap: 2rem !important;
   }
-  
+
   .mobile-image-order {
     order: 1 !important;
     margin-bottom: 1.5rem !important;
   }
-  
+
   .mobile-text-order {
     order: 2 !important;
   }
-  
+
   /* Force mobile layout behavior for all elements below 768px */
-  .mobile-hero-layout > * {
+  .mobile-hero-layout>* {
     width: 100% !important;
     max-width: 100% !important;
     justify-self: center !important;
@@ -52,32 +52,37 @@ html {
 /* Specific styling for small tablet range (640px - 767px) */
 @media (min-width: 640px) and (max-width: 767px) {
   .small-tablet-hero-text {
-    font-size: 2.5rem !important; /* Slightly larger than mobile */
+    font-size: 2.5rem !important;
+    /* Slightly larger than mobile */
     line-height: 1.1 !important;
   }
-  
+
   .small-tablet-hero-subtitle {
-    font-size: 1.125rem !important; /* Slightly larger than mobile */
+    font-size: 1.125rem !important;
+    /* Slightly larger than mobile */
   }
-  
+
   .small-tablet-hero-description {
-    font-size: 0.9375rem !important; /* Between mobile and desktop */
+    font-size: 0.9375rem !important;
+    /* Between mobile and desktop */
     padding: 0.5rem 1rem !important;
   }
-  
+
   .small-tablet-buttons {
     gap: 1rem !important;
     padding-top: 1.5rem !important;
-    justify-content: center !important; /* Force center alignment */
+    justify-content: center !important;
+    /* Force center alignment */
     align-items: center !important;
-    flex-direction: column !important; /* Force vertical stacking */
+    flex-direction: column !important;
+    /* Force vertical stacking */
   }
-  
+
   .small-tablet-buttons button {
     align-self: center !important;
     width: auto !important;
   }
-  
+
   .small-tablet-image {
     width: 180px !important;
   }
@@ -88,12 +93,12 @@ html {
   .navbar-medium-screen {
     gap: 0.75rem !important;
   }
-  
+
   .navbar-medium-screen button {
     font-size: 0.75rem !important;
     padding: 0.25rem !important;
   }
-  
+
   .navbar-cta-medium {
     gap: 0.5rem !important;
   }
@@ -110,13 +115,27 @@ html {
 
 
 /* Font settings for headings and text */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'EB Garamond', serif !important;
 }
 
-body, p, span, div, li, a, button, input, textarea {
+body,
+p,
+span,
+div,
+li,
+a,
+button,
+input,
+textarea {
   font-family: 'Poppins', sans-serif !important;
 }
+
 body {
   background: var(--background) !important;
   color: var(--text) !important;
@@ -132,25 +151,45 @@ body {
   --text: #000B58;
   --primary: #FFD93D;
   --secondary: #000B58;
+  --accent: #FFD93D;
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: 10px;
 }
 
 html.dark,
 html.dark * {
   --background: #000000;
   --foreground: #FFF8D4;
-  --text: #FFF8D4;
 }
 
 .dark {
   --background: #000000;
-  --foreground: #FFF8D4;
-  --text: #FFF8D4;
+  --foreground: #ededed;
+  --text: #ededed;
   --primary: #FFD93D;
-  --secondary: #F5F5F0;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --secondary: #1a1a1a;
+  --accent: #00f0ff;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-button {
+  background: rgba(255, 217, 61, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 217, 61, 0.3);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 217, 61, 0.2);
+  box-shadow: 0 0 15px rgba(255, 217, 61, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -171,8 +210,10 @@ html {
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.333%);
+    /* Move 1/3 of the total width since we have 3 sets */
   }
 }
 
@@ -180,11 +221,34 @@ html {
   animation: scroll-slow 30s linear infinite;
 }
 
+.group:hover .pause-on-hover {
+  animation-play-state: paused;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 12s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin 12s linear infinite reverse;
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -195,6 +259,7 @@ html {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -205,6 +270,7 @@ html {
     opacity: 0;
     transform: translateX(-100px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -216,6 +282,7 @@ html {
     opacity: 0;
     transform: translateX(100px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -339,14 +406,14 @@ html {
     gap: 1.5rem !important;
     padding-top: 1rem !important;
   }
-  
+
   .profile-image-container {
     position: relative !important;
     display: flex !important;
     justify-content: center !important;
     margin-bottom: 1.5rem !important;
   }
-  
+
   .about-layout .text-block {
     position: relative !important;
     width: 100% !important;
@@ -354,7 +421,7 @@ html {
     min-width: auto !important;
     margin-bottom: 1.5rem !important;
   }
-  
+
   .timeline-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;

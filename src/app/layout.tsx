@@ -4,6 +4,7 @@ import "./globals.css";
 import FluidCursor from "@/components/FluidCursor";
 import TechBackground from "@/components/TechBackground";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import ScrollManager from "@/components/ScrollManager";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,9 +38,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          <TechBackground />
-          <FluidCursor />
-          {children}
+          <ScrollManager>
+            <TechBackground />
+            <FluidCursor />
+            {children}
+          </ScrollManager>
         </ThemeProvider>
       </body>
     </html>
