@@ -47,7 +47,7 @@ const AboutSection = () => {
     <section 
       id="ABOUT ME"
       ref={containerRef}
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative pt-24 pb-40 md:pt-32 md:pb-56 overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -55,7 +55,7 @@ const AboutSection = () => {
         <div className={`absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[100px] opacity-20 ${theme === 'dark' ? 'bg-purple-900' : 'bg-yellow-300'}`} />
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container-custom relative z-10">
         
         {/* Section Header */}
         <motion.div 
@@ -64,7 +64,6 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="mb-20 text-center"
         >
-          <h2 className="text-sm font-bold tracking-[0.3em] text-[#FFD93D] mb-4">WHO I AM</h2>
           <h3 className={`text-4xl md:text-5xl font-bold ${theme === 'dark' ? 'text-white' : 'text-[#000B58]'}`}>
             About <span className="text-[#FFD93D]">Me</span>
           </h3>

@@ -12,18 +12,32 @@ html {
   color: inherit !important;
 }
 
-/* Mobile and small tablet responsive overrides (screens < 1024px for mobile-like behavior) */
+/* Global custom container for consistent left/right margins and aligned layout */
+.container-custom {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem; /* 24px mobile left margin */
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 2.5rem; /* 40px tablet left margin */
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 4rem; /* 64px desktop left margin */
+    padding-right: 4rem;
+  }
+}
+
+/* Mobile layout adjustments */
 @media (max-width: 1023px) {
-  .mobile-logo-spacing {
-    margin-left: 0 !important;
-  }
-
-  .mobile-hero-spacing {
-    margin-left: 0 !important;
-    text-align: center !important;
-    padding: 0 1rem !important;
-  }
-
   .mobile-hero-layout {
     flex-direction: column !important;
     align-items: center !important;
@@ -40,7 +54,6 @@ html {
     order: 2 !important;
   }
 
-  /* Force mobile layout behavior for all elements below 768px */
   .mobile-hero-layout>* {
     width: 100% !important;
     max-width: 100% !important;
@@ -221,8 +234,11 @@ html {
   animation: scroll-slow 30s linear infinite;
 }
 
+.animate-scroll-slow:hover,
+.group:hover .animate-scroll-slow,
+.pause-on-hover:hover,
 .group:hover .pause-on-hover {
-  animation-play-state: paused;
+  animation-play-state: paused !important;
 }
 
 @keyframes spin {
