@@ -85,7 +85,7 @@ const FooterSection = () => {
 
             <div className="space-y-2">
               <p className="opacity-60 text-sm tracking-wider uppercase">Location</p>
-              <p className="text-xl">Jaffna, Sri Lanka</p>
+              <p className="text-xl">Chennai, India</p>
             </div>
           </div>
         </div>
